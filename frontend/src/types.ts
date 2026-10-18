@@ -35,3 +35,13 @@ export type SyncOp =
 export interface SyncResult {opId:string;status:'applied'|'conflict'|'rejected';revision?:number;current?:unknown;code?:string;message?:string}
 export interface Stats {totalActiveMs:number;booksStarted:number;booksCompleted:number;currentStreak:number;daily:{date:string;activeMs:number}[];byBook:{bookId:string;title:string;activeMs:number}[];recentSessions:{id:string;bookId:string;activeMs:number;receivedAt:string}[];goalMinutes:number;goalBooks:number}
 export interface ImportJob{id:string;bookId:string|null;status:string;error:string|null;createdAt:string;[key:string]:unknown}
+
+export interface Photo {
+  id: UUID; caption: string | null; fileName: string; mime: string; size: number; sha256: string;
+  width: number | null; height: number | null; takenAt: string | null;
+  camera: string | null; lens: string | null; iso: number | null;
+  aperture: string | null; shutter: string | null; focalLength: string | null;
+  orientation: number | null; gpsLat: number | null; gpsLon: number | null;
+  tags: string[]; favorite: boolean; createdAt: string; revision: number;
+  fileUrl: string; thumbnailUrl: string;
+}

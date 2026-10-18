@@ -1,12 +1,13 @@
 import {createContext,useContext,useEffect,useState} from 'react';
 import {Link,NavLink,Route,Routes,useLocation,useNavigate} from 'react-router-dom';
 import {useQueryClient} from '@tanstack/react-query';
-import {BookOpen,ChartNoAxesCombined,CloudOff,CloudUpload,Highlighter,House,Layers3,LibraryBig,LogOut,Menu,Plus,Settings2,Wifi,X} from 'lucide-react';
+import {BookOpen,ChartNoAxesCombined,CloudOff,CloudUpload,Highlighter,House,Images,Layers3,LibraryBig,LogOut,Menu,Plus,Settings2,Wifi,X} from 'lucide-react';
 import type {User} from './types';
 import {api,login,setCsrf,setup} from './api';
 import {clearAccount,db,pendingCount} from './storage';
 import {errorText,flush,pull,startSync,subscribeSync} from './sync';
 import {Home,Library,BookDetails,ReaderRoute,Annotations,Statistics,Settings,Imports,Collections,Upload} from './screens';
+import {Photos} from './photos';
 
 interface Session {user:User|null;setUser:(user:User|null)=>void;offline:boolean;refresh:()=>Promise<void>}
 const SessionContext=createContext<Session|null>(null);
@@ -48,6 +49,7 @@ function Auth(){
 
 const nav=[
   {to:'/',name:'Home',icon:House},{to:'/library',name:'Library',icon:LibraryBig},
+  {to:'/photos',name:'Photos',icon:Images},
   {to:'/annotations',name:'Notes & highlights',icon:Highlighter},{to:'/collections',name:'Collections',icon:Layers3},
   {to:'/stats',name:'Statistics',icon:ChartNoAxesCombined},{to:'/imports',name:'Imports',icon:CloudUpload},
   {to:'/settings',name:'Settings',icon:Settings2}
@@ -71,7 +73,7 @@ function Shell(){
     <div className="lg:pl-[236px] min-h-screen flex flex-col">
       <header className="citko-header px-5 sm:px-8 lg:px-9 flex items-center justify-between border-b border-line bg-white sticky top-0 z-30"><div className="flex items-center gap-3"><button className="lg:hidden p-1" aria-label="Open menu" onClick={()=>setMenu(true)}><Menu size={21}/></button><Link to="/" className="lg:hidden text-lg font-bold tracking-[-.06em]">citko.</Link><span className="hidden lg:block text-sm text-muted">{nav.find(item=>item.to===location.pathname)?.name||'Library'}</span></div><div className="flex items-center gap-3 sm:gap-5"><span title={offline?'Offline':count?'Changes waiting to sync':'Connected'} className="inline-flex gap-1.5 items-center text-xs text-muted">{offline||count?<CloudOff size={15}/>:<Wifi size={15}/>}<span className="hidden sm:inline">{offline?'Offline':count?`${count} pending`:'Connected'}</span></span><Link to="/upload" className="hidden sm:inline-flex btn btn-quiet !min-h-9 !py-1.5"><Plus size={16}/> Add books</Link></div></header>
       {(offline||logoutError)&&<div role="status" className="bg-[#f4f4f4] border-b border-line px-5 py-2.5 text-center text-xs text-[#555]">{logoutError||'Offline. Saved books and notes are available; changes will sync when you reconnect.'}</div>}
-      <main className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-10 py-7 sm:py-9 flex-1"><Routes><Route path="/" element={<Home/>}/><Route path="/library" element={<Library/>}/><Route path="/books/:id" element={<BookDetails/>}/><Route path="/annotations" element={<Annotations/>}/><Route path="/collections" element={<Collections/>}/><Route path="/stats" element={<Statistics/>}/><Route path="/imports" element={<Imports/>}/><Route path="/settings" element={<Settings/>}/><Route path="/upload" element={<Upload/>}/><Route path="*" element={<div className="text-center py-24"><h1 className="text-2xl font-semibold">Page not found</h1><Link className="btn btn-primary mt-6" to="/">Back home</Link></div>}/></Routes></main>
+      <main className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-10 py-7 sm:py-9 flex-1"><Routes><Route path="/" element={<Home/>}/><Route path="/library" element={<Library/>}/><Route path="/photos" element={<Photos/>}/><Route path="/books/:id" element={<BookDetails/>}/><Route path="/annotations" element={<Annotations/>}/><Route path="/collections" element={<Collections/>}/><Route path="/stats" element={<Statistics/>}/><Route path="/imports" element={<Imports/>}/><Route path="/settings" element={<Settings/>}/><Route path="/upload" element={<Upload/>}/><Route path="*" element={<div className="text-center py-24"><h1 className="text-2xl font-semibold">Page not found</h1><Link className="btn btn-primary mt-6" to="/">Back home</Link></div>}/></Routes></main>
       <footer className="citko-footer px-5 sm:px-10 py-6 border-t border-line text-xs text-muted flex justify-between bg-white"><span>Citko</span><Link to="/settings" className="hover:text-ink">Settings</Link></footer>
     </div>
   </div>;
