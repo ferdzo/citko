@@ -160,11 +160,11 @@ export function Photos(){
       :<Empty icon={<Images size={27} strokeWidth={1.5} className="mx-auto text-muted mb-4"/>} title={favorites?'No favorites yet':'No photos yet'} description={favorites?'Photos you mark as favorites collect here.':'Add your own photographs to keep them alongside your library.'} action={<button className="btn btn-primary" onClick={()=>input.current?.click()}><Plus size={16}/> Add photos</button>}/>}
 
     {current&&<div role="dialog" aria-modal="true" aria-label={`Photo ${open!+1} of ${items.length}`} className="fixed inset-0 z-50 bg-black/85 overflow-y-auto flex flex-col lg:flex-row">
-      <div className="relative flex-1 min-h-[45vh] flex items-center justify-center p-4 lg:p-8" onClick={()=>setOpen(null)}>
+      <div className="relative flex-1 min-h-[60vh] lg:min-h-0 flex items-center justify-center p-4 lg:p-8" onClick={()=>setOpen(null)}>
         {/* The thumbnail is already in the browser cache from the grid, so it stands in while the
             full-size photo is still in flight instead of leaving an empty frame. */}
-        <img src={current.thumbnailUrl} alt="" aria-hidden="true" onClick={event=>event.stopPropagation()} className="max-h-[62vh] lg:max-h-[86vh] max-w-full object-contain blur-[2px]"/>
-        <img src={current.fileUrl} alt={current.caption||current.fileName} onLoad={()=>setLoaded(true)} className={`absolute max-h-[62vh] lg:max-h-[86vh] max-w-full object-contain transition-opacity duration-300 ${loaded?'opacity-100':'opacity-0'}`} onClick={event=>event.stopPropagation()}/>
+        <img src={current.thumbnailUrl} alt="" aria-hidden="true" onClick={event=>event.stopPropagation()} className="max-h-[60vh] lg:max-h-[86vh] max-w-full object-contain blur-[2px]"/>
+        <img src={current.fileUrl} alt={current.caption||current.fileName} onLoad={()=>setLoaded(true)} className={`absolute max-h-[60vh] lg:max-h-[86vh] max-w-full object-contain transition-opacity duration-300 ${loaded?'opacity-100':'opacity-0'}`} onClick={event=>event.stopPropagation()}/>
         <button aria-label="Previous photo" disabled={open===0} onClick={event=>{event.stopPropagation();setOpen(Math.max(0,(open??0)-1))}} className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 grid place-items-center text-ink disabled:opacity-30"><ArrowLeft size={18}/></button>
         <button aria-label="Next photo" disabled={open===items.length-1} onClick={event=>{event.stopPropagation();setOpen(Math.min(items.length-1,(open??0)+1))}} className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 grid place-items-center text-ink disabled:opacity-30"><ArrowRight size={18}/></button>
       </div>
