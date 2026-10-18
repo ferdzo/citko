@@ -1,0 +1,66 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /Outlines 9 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 240 >>
+stream
+BT /F1 20 Tf 72 740 Td (The River) Tj /F1 12 Tf 0 -32 Td (The river keeps the morning light. This is a public-domain test story written for Citko browser integration evidence. The water carries a silver ribbon beneath the old bridge.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 220 >>
+stream
+BT /F1 20 Tf 72 740 Td (The Orchard) Tj /F1 12 Tf 0 -32 Td (In the orchard, every apple remembers the rain. Mara opens her notebook and records the quiet names of trees, one by one, before the autumn wind arrives.) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 202 >>
+stream
+BT /F1 20 Tf 72 740 Td (A Lantern) Tj /F1 12 Tf 0 -32 Td (At dusk a lantern shines beside the river. The travelers find their way home, carrying stories that will be read again on another device.) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Outlines /First 10 0 R /Last 12 0 R /Count 3 >>
+endobj
+10 0 obj
+<< /Title (The River) /Parent 9 0 R /Dest [3 0 R /Fit] /Next 11 0 R >>
+endobj
+11 0 obj
+<< /Title (The Orchard) /Parent 9 0 R /Dest [5 0 R /Fit] /Prev 10 0 R /Next 12 0 R >>
+endobj
+12 0 obj
+<< /Title (A Lantern) /Parent 9 0 R /Dest [7 0 R /Fit] /Prev 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000074 00000 n 
+0000000143 00000 n 
+0000000318 00000 n 
+0000000609 00000 n 
+0000000784 00000 n 
+0000001055 00000 n 
+0000001230 00000 n 
+0000001483 00000 n 
+0000001556 00000 n 
+0000001643 00000 n 
+0000001745 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+1832
+%%EOF

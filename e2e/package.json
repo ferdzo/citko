@@ -1,0 +1,14 @@
+{
+  "name": "citko-browser-evidence",
+  "private": true,
+  "scripts": {
+    "test": "npm run fixtures && playwright test",
+    "test:headed": "playwright test --headed",
+    "fixtures": "python3 fixtures/generate.py"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "22.19.1",
+    "typescript": "5.9.3"
+  }
+}
